@@ -31,14 +31,14 @@ class Home extends Component {
 
   render() {
     const { pokemonData } = this.state;
-    // console.log(pokemonData.results);
+    // console.log(pokemonData);
     return (
       <div className="home-container">
         <SiPokemon className="pokemon-heading-icon" />
         <h1 className="main-heading">Click the cards to see details</h1>
         <div className="pokemon-cards-container">
-          {pokemonData.results?.map((eachItem) => (
-            <PokemonCard itemDetail={eachItem} />
+          {pokemonData.results?.map((eachItem, i) => (
+            <PokemonCard itemDetail={eachItem} key={i} />
           ))}
         </div>
       </div>
