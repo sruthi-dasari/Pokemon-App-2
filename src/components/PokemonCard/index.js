@@ -12,8 +12,8 @@ class PokemonCard extends Component {
   }
 
   getPokeMonDetail = async () => {
-    const { cardDetails } = this.props;
-    const { url } = cardDetails;
+    const { itemDetail } = this.props;
+    const { url } = itemDetail;
     const options = {
       method: "GET",
     };
@@ -32,10 +32,10 @@ class PokemonCard extends Component {
   //   };
 
   render() {
-    const { cardDetails } = this.props;
-    const { name } = cardDetails;
-    // console.log(cardDetails);
-    //id is not present in cardDetail
+    const { itemDetail } = this.props;
+    const { name } = itemDetail;
+    // console.log(itemDetails);
+    //id is not present in itemDetail
     return (
       //   <button type="button" onClick={this.onClickCard}>
       <div className="pokemon-card-container">
