@@ -2,46 +2,36 @@ import "./index.css";
 
 import { Component } from "react";
 
+import PokemonCardDetail from "../PokemonCardDetail";
+
 class PokemonCard extends Component {
-  state = {
-    pokemonDetailData: "",
+  //   componentDidMount() {
+  // this.gotoPokemonCardDetail();
+  //   }
+
+  onClickCard = () => {
+    console.log("In onClickCard()");
+    this.renderPokemonCardDetail();
   };
 
-  componentDidMount() {
-    this.getPokeMonDetail();
-  }
-
-  getPokeMonDetail = async () => {
+  renderPokemonCardDetail = () => {
+    console.log("In renderPokemonCardDetail()");
     const { itemDetail } = this.props;
     const { url } = itemDetail;
-    const options = {
-      method: "GET",
-    };
-    const response = await fetch(url, options);
-    // console.log(response);
-    const data = await response.json();
-    // console.log(data);
-
-    if (response.ok) {
-      this.setState({ pokemonDetailData: data });
-    }
+    return <PokemonCardDetail url={url} />;
   };
-
-  //   onClickCard = () => {
-  //     <PokemonCardDetail pokecardDetails={} />;
-  //   };
 
   render() {
     const { itemDetail } = this.props;
     const { name } = itemDetail;
-    // console.log(itemDetails);
-    //id is not present in itemDetail
+    // console.log(itemDetail);
+
     return (
-      //   <button type="button" onClick={this.onClickCard}>
-      <div className="pokemon-card-container">
-        <h1 className="pokemon-name">{name}</h1>
-      </div>
-      //   </button>
+      <button type="button" onClick={this.onClickCard}>
+        <div className="pokemon-card-container">
+          <h1 className="pokemon-name">{name}</h1>
+        </div>
+      </button>
     );
   }
 }
