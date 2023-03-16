@@ -36,10 +36,32 @@ class Home extends Component {
       <div className="home-container">
         <SiPokemon className="pokemon-heading-icon" />
         <h1 className="main-heading">Click the cards to see details</h1>
-        <div className="pokemon-cards-container">
+        {/* <div className="pokemon-cards-container">
           {pokemonData.results?.map((eachItem, i) => (
             <PokemonCard itemDetail={eachItem} key={i} />
           ))}
+        </div> */}
+        <div className="cards-outer-container">
+          <div className="pokemon-cards-container">
+            <PokemonCard />
+            <PokemonCard />
+            <PokemonCard />
+            <PokemonCard />
+            <PokemonCard />
+            <PokemonCard />
+          </div>
+          <div className="card-detail-container">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+              alt="pokemon"
+            />
+            <hr />
+            <p className="pokemon-desc">Ability1: overgrow</p>
+            <p className="pokemon-desc">Ability2: chlorophyll</p>
+            <p className="pokemon-desc">base_experience: 64</p>
+            <p className="pokemon-desc">height: 7</p>
+            <p className="pokemon-desc">weight: 69</p>
+          </div>
         </div>
       </div>
     );
