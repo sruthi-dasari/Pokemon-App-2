@@ -38,7 +38,7 @@ class Home extends Component {
         <h1 className="main-heading">Click the cards to see details</h1>
         <div className="pokemon-cards-container">
           {pokemonData.results?.map((eachItem) => (
-            <PokemonCard cardDetails={eachItem} />
+            <PokemonCard itemDetail={eachItem} />
           ))}
         </div>
       </div>
