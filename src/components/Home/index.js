@@ -7,7 +7,7 @@ import { Component } from "react";
 
 class Home extends Component {
   state = {
-    pokemonData: "",
+    pokemonData: [],
   };
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class Home extends Component {
     const response = await fetch(url, options);
     // console.log(response);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     if (response.ok) {
       this.setState({ pokemonData: data });
@@ -31,14 +31,16 @@ class Home extends Component {
 
   render() {
     const { pokemonData } = this.state;
-    console.log(pokemonData);
+    // console.log(pokemonData.results);
     return (
       <div className="home-container">
         <SiPokemon className="pokemon-heading-icon" />
         <h1 className="main-heading">Click the cards to see details</h1>
-        {/* {pokemonData.results.map((eachItem) => (
-          <PokemonCard cardDetails={eachItem} />
-        ))} */}
+        <div className="pokemon-cards-container">
+          {pokemonData.results?.map((eachItem) => (
+            <PokemonCard cardDetails={eachItem} />
+          ))}
+        </div>
       </div>
     );
   }
